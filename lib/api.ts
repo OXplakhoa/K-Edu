@@ -69,3 +69,63 @@ export const filterProducts = async (
   );
   return filtered;
 };
+
+//Mock pagination API for infinite scroll
+export const getProductsPaginated = async (
+  page: number = 1,
+  limit: number = 12,
+  filters?: {
+    category?: string;
+    priceRange?: { min: number; max: number };
+    search?: string;
+  }
+): Promise<{ products: Product[]; hasMore: boolean; total: number }> => {
+  await delay(500);
+
+  //Giả lập kết nối DB lỗi (15%)
+  if (Math.random() < 0.15) {
+    throw new Error("Lỗi kết nối DB, vui lòng thử lại sau");
+  }
+
+  //Giả lập page number invalid
+  if (page < 1) {
+    throw new Error("Trang không hợp lệ, vui lòng thử lại sau");
+  }
+  let filtered = products;
+
+  //Apply filter
+  if (filters?.search) {
+    filtered = filtered.filter(
+      (product) =>
+        product.name.toLowerCase().includes(filters.search!.toLowerCase()) ||
+        product.description
+          .toLowerCase()
+          .includes(filters.search!.toLowerCase()) ||
+        product.tags.some((tag) =>
+          tag.toLowerCase().includes(filters.search!.toLowerCase())
+        )
+    );
+  }
+  if (filters?.category && filters.category !== "All") {
+    filtered = filtered.filter(
+      (product) => product.category === filters.category
+    );
+  }
+  if (filters?.priceRange) {
+    filtered = filtered.filter(
+      (product) =>
+        product.price >= filters.priceRange!.min &&
+        product.price <= filters.priceRange!.max
+    );
+  }
+  //Calculate Pagination
+  const startIndex = (page - 1) * limit;
+  const endIndex = startIndex + limit;
+  const paginatedProducts = filtered.slice(startIndex, endIndex);
+  const hasMore = endIndex < filtered.length;
+  return {
+    products: paginatedProducts,
+    hasMore,
+    total: filtered.length,
+  };
+};
