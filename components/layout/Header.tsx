@@ -78,13 +78,13 @@ export default function Header() {
             Khóa Học
           </Link>
           <Link
-            href="#"
+            href="#about"
             className="text-white hover:text-amber-400 transition-colors"
           >
             Về Chúng Tôi
           </Link>
           <Link
-            href="#"
+            href="#footer"
             className="text-white hover:text-amber-400 transition-colors"
           >
             Liên Hệ
