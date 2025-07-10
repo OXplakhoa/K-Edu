@@ -17,21 +17,21 @@ export default function Footer() {
               giúp bạn phát triển kỹ năng và sự nghiệp.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-200">
+              <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-200">
                 <Facebook size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-200">
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-200">
                 <Twitter size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-200">
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-200">
                 <Instagram size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-200">
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-200">
                 <Linkedin size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-200">
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-200">
                 <Youtube size={20} />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -40,29 +40,29 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white">Liên Kết Nhanh</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#courses" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
+                <Link href="#courses" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
                   Khóa Học
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
+                <Link href="#about" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
                   Về Chúng Tôi
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
+                <Link href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
                   Giảng Viên
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
+                <Link href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
                   Blog
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
+                <Link href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
                   Liên Hệ
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -72,29 +72,29 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-white">Danh Mục</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
+                <Link href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
                   Lập Trình
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
+                <Link href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
                   Thiết Kế
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
+                <Link href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
                   Khoa Học Dữ Liệu
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
+                <Link href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
                   Trí Tuệ Nhân Tạo
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
+                <Link href="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-200">
                   Marketing
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -142,7 +142,7 @@ export default function Footer() {
                 placeholder="Nhập email của bạn"
                 className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent text-white placeholder-gray-400"
               />
-              <button className="px-6 py-2 bg-amber-400 text-gray-900 font-medium rounded-lg hover:bg-amber-500 transition-colors duration-200">
+              <button className="px-6 py-2 bg-amber-400 text-gray-900 font-medium rounded-lg hover:bg-amber-500 transition-colors duration-200 cursor-pointer">
                 Đăng Ký
               </button>
             </div>
