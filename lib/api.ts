@@ -3,7 +3,7 @@ import { products, Product } from "./data";
 //Mock API delay
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-//Mock API suggestions for AI
+//Mock API suggestions
 export const getAISuggestions = async (userId: string): Promise<Product[]> => {
   await delay(1500);
 
@@ -25,7 +25,7 @@ export const getAISuggestions = async (userId: string): Promise<Product[]> => {
   return suggestions;
 };
 
-//Mock API for product search
+//Mock API product search
 export const searchProducts = async (query: string): Promise<Product[]> => {
   await delay(500);
 
@@ -46,6 +46,26 @@ export const searchProducts = async (query: string): Promise<Product[]> => {
       product.tags.some((tag) =>
         tag.toLowerCase().includes(query.toLowerCase())
       )
+  );
+  return filtered;
+};
+
+//Mock API filter products
+export const filterProducts = async (
+  category: string,
+  priceRange: { min: number; max: number }
+): Promise<Product[]> => {
+  await delay(300);
+
+  let filtered = products;
+
+  if (category !== "All") {
+    filtered = filtered.filter((product) => product.category === category);
+  }
+
+  filtered = filtered.filter(
+    (product) =>
+      product.price >= priceRange.min && product.price <= priceRange.max
   );
   return filtered;
 };
