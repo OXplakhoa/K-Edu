@@ -129,3 +129,65 @@ export const getProductsPaginated = async (
     total: filtered.length,
   };
 };
+
+//Mock AI Chat Response
+export const getChatbotResponse = async (message: string): Promise<string> => {
+  await delay(1000);
+
+  //Giả lập dịch vụ lỗi (8%)
+  if (Math.random() < 0.08) {
+    throw new Error("Dịch vụ AI hiện đang bị lỗi, vui lòng thử lại sau");
+  }
+
+  //Giả lập network timeout (5%)
+  if (Math.random() < 0.05) {
+    throw new Error("Request Timeout, vui lòng thử lại sau");
+  }
+
+  //Giả lập lỗi message invalid
+  if (!message.trim()) {
+    throw new Error("Vui lòng nhập tin nhắn");
+  }
+  const lowerMessage = message.toLowerCase();
+
+  if (lowerMessage.includes("javascript") || lowerMessage.includes("js")) {
+    return "Tôi nghĩ bạn nên tham gia khóa học 'Complete Javascript Course 2025' - khóa học này hoàn hảo cho người mới bắt đầu và bao gồm đầy đủ các khái niệm từ cơ bản đến nâng cao!";
+  }
+  if (
+    lowerMessage.includes("python") ||
+    lowerMessage.includes("data science")
+  ) {
+    return "Bạn nên xem qua khóa học 'Python for Data Science'! Khóa này dành cho người mới và bao gồm phân tích dữ liệu, machine learning và tính toán khoa học.";
+  }
+
+  if (
+    lowerMessage.includes("web development") ||
+    lowerMessage.includes("html") ||
+    lowerMessage.includes("css")
+  ) {
+    return "Khóa học 'Web Development Bootcamp' sẽ rất phù hợp với bạn! Khóa này bao gồm HTML, CSS, JavaScript và các framework hiện đại trong một lộ trình toàn diện 20 giờ.";
+  }
+
+  if (
+    lowerMessage.includes("mobile") ||
+    lowerMessage.includes("react native")
+  ) {
+    return "Tôi đề xuất khóa học 'React Native Masterclass' - một khóa học trình độ trung cấp giúp bạn xây dựng ứng dụng mobile đa nền tảng.";
+  }
+
+  if (
+    lowerMessage.includes("design") ||
+    lowerMessage.includes("ui") ||
+    lowerMessage.includes("ux")
+  ) {
+    return "Khóa học 'Advanced UI/UX Design' là lựa chọn tuyệt vời để học các nguyên lý thiết kế hiện đại và sử dụng công cụ như Figma!";
+  }
+
+  if (
+    lowerMessage.includes("machine learning") ||
+    lowerMessage.includes("ai")
+  ) {
+    return "Hãy thử khóa học 'Machine Learning Fundamentals'! Đây là khóa học nâng cao về thuật toán ML, mạng neural và các ứng dụng AI.";
+  }
+  return "Tôi rất vui lòng giúp bạn tìm khóa học hoàn hảo! Bạn có thể cho tôi biết thêm về những gì bạn muốn học không? Ví dụ, bạn có hứng thú với lập trình, thiết kế, khoa học dữ liệu hay điều gì khác không?"
+};
