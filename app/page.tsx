@@ -12,8 +12,7 @@ export default function Home() {
     <>
       <HeroSection/>
       <AboutSection/>
-      <ProductGrid products={products} favorites={[]} onViewDetails={() => {}} onToggleFavorite={() => {}}/>
-      <ProductModal product={products[0]} isOpen={true} onClose={() => {}} onToggleFavorite={() => {}} isFavorite={false}/>
+      
       <Footer/>
     </>
   );
