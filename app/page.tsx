@@ -1,4 +1,5 @@
 "use client";
+import ErrorToast from "@/components/error/ErrorToast";
 import Footer from "@/components/layout/Footer";
 import ProductCard from "@/components/products/ProductCard";
 import ProductGrid from "@/components/products/ProductGrid";
@@ -14,6 +15,7 @@ export default function Home() {
       <HeroSection/>
       <AboutSection/>
       <SearchAndFilter onSearch={() => {}} onFilter={() => {}} onAISuggestions={() => {}} isLoadingSuggestions={false}/>
+      <ErrorToast message="This is a test error" type="info" onClose={() => {}}/>
       <Footer/>
     </>
   );
