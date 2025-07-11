@@ -34,7 +34,7 @@ export default function AboutSection() {
           }
         },
         {
-          threshold: 0.3, // Trigger when 30% of section is visible
+          threshold: 0.1, // Trigger when 30% of section is visible
           rootMargin: "0px 0px -50px 0px",
         }
       );

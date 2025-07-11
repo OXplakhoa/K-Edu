@@ -130,7 +130,7 @@ export default function ProductCard({
           {/* Action Button */}
           <button
             onClick={() => onViewDetails(product)}
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 hover:scale-105 transition-all duration-200 font-medium shadow-md hover:shadow-lg"
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 hover:scale-105 transition-all duration-200 font-medium shadow-md hover:shadow-lg cursor-pointer"
           >
             Xem chi tiết
           </button>

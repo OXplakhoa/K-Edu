@@ -1,6 +1,7 @@
 "use client";
 import Footer from "@/components/layout/Footer";
 import ProductCard from "@/components/products/ProductCard";
+import ProductGrid from "@/components/products/ProductGrid";
 import ProductSkeleton from "@/components/products/ProductSkeleton";
 import AboutSection from "@/components/sections/AboutSection";
 import HeroSection from "@/components/sections/HeroSection";
@@ -10,8 +11,7 @@ export default function Home() {
     <>
       <HeroSection/>
       <AboutSection/>
-      <ProductCard product={products[0]} onViewDetails={() => {}} onToggleFavorite={() => {}} isFavorite={false}/>
-      <ProductSkeleton/>
+      <ProductGrid products={products} favorites={[]} onViewDetails={() => {}} onToggleFavorite={() => {}}/>
       <Footer/>
     </>
   );
