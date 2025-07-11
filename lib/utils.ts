@@ -1,5 +1,5 @@
 import { clsx, type ClassValue } from "clsx"
-import { toast } from "react-hot-toast";
+import { toast, ToastType } from "react-hot-toast";
 import { twMerge } from "tailwind-merge"
 import { Product, products } from "./data";
 import { STORAGE_KEYS } from "@/components/common/constants";
@@ -69,3 +69,36 @@ export const productUtils = {
   }
 };
 
+// Error Handling Utilities
+export const errorUtils = {
+  // Handle API errors with toast
+  handleApiError: (error: unknown, defaultMessage: string): string => {
+    const errorMessage = error instanceof Error ? error.message : defaultMessage;
+    toast.error(errorMessage);
+    return errorMessage;
+  },
+
+  // Create toast message object
+  createToastMessage: (message: string, type: ToastType): { message: string; type: ToastType } => {
+    return { message, type };
+  }
+};
+
+// State Management Utilities
+export const stateUtils = {
+  // Create initial filters state
+  createInitialFilters: () => ({
+    category: 'All',
+    priceRange: { min: 0, max: Infinity },
+    search: ''
+  }),
+
+  // Update filters state
+  updateFilters: (
+    currentFilters: any, 
+    updates: Partial<{ category: string; priceRange: { min: number; max: number }; search: string }>
+  ) => ({
+    ...currentFilters,
+    ...updates
+  })
+};
