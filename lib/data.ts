@@ -348,8 +348,8 @@ export const categories = [
   "Blockchain",
 ];
 export const priceRanges = [
-  { label: "All Prices", min: 0, max: Infinity },
-  { label: "Under 500K", min: 0, max: 500000 },
+  { label: "Tất cả giá", min: 0, max: Infinity },
+  { label: "Dưới 500K", min: 0, max: 500000 },
   { label: "500K - 1M", min: 500000, max: 1000000 },
-  { label: "Over 1M", min: 1000000, max: Infinity },
+  { label: "Trên 1M", min: 1000000, max: Infinity },
 ];

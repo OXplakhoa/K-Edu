@@ -56,7 +56,7 @@ export default function SearchAndFilter({
           />
           <button
             type="submit"
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-md hover:bg-blue-700 transition-colors"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-md hover:bg-blue-700 transition-colors cursor-pointer"
           >
             Tìm
           </button>
@@ -112,7 +112,7 @@ export default function SearchAndFilter({
           <button
             onClick={onAISuggestions}
             disabled={isLoadingSuggestions}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {isLoadingSuggestions ? (
               <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
@@ -132,7 +132,7 @@ export default function SearchAndFilter({
               {selectedCategory}
               <button
                 onClick={() => handleCategoryChange('All')}
-                className="ml-1 hover:text-blue-600"
+                className="ml-1 hover:text-blue-600 cursor-pointer"
               >
                 ×
               </button>
