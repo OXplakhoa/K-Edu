@@ -41,7 +41,7 @@ export default function ProductCard({
         {/*Favorite Button*/}
         <button
           onClick={() => onToggleFavorite(product.id)}
-          className="absolute top-3 right-3 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transtion-all duration-300"
+          className="absolute top-3 right-3 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transtion-all duration-300 cursor-pointer"
         >
           <Heart
             size={20}
