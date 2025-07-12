@@ -66,6 +66,16 @@ export const productUtils = {
     }
     
     return newFavorites;
+  },
+
+  // Check if product is favorite
+  isFavorite: (productId: string, favorites: string[]): boolean => {
+    return favorites.includes(productId);
+  },
+
+  // Clear all favorites
+  clearFavorites: (): string[] => {
+    return [];
   }
 };
 
