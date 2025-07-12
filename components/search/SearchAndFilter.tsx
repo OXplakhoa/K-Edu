@@ -143,7 +143,7 @@ export default function SearchAndFilter({
               {selectedPriceRange.label}
               <button
                 onClick={() => handlePriceRangeChange(priceRanges[0])}
-                className="ml-1 hover:text-green-600"
+                className="ml-1 hover:text-green-600 cursor-pointer"
               >
                 ×
               </button>

@@ -79,7 +79,7 @@ function Toast({ id, message, type, duration = 5000, onClose, index }: ToastProp
         <p className="flex-1 text-sm font-medium">{message}</p>
         <button
           onClick={handleClose}
-          className="flex-shrink-0 hover:opacity-80 transition-opacity p-1 rounded-full hover:bg-white/20"
+          className="flex-shrink-0 hover:opacity-80 transition-opacity p-1 rounded-full hover:bg-white/20 cursor-pointer"
         >
           <X className="w-4 h-4" />
         </button>

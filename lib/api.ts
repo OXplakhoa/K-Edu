@@ -7,15 +7,13 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 export const getAISuggestions = async (userId: string): Promise<Product[]> => {
   await delay(1500);
 
-  //Giả lập ngãu nhiên lỗi (10%)
-  if (Math.random() < 0.1) {
-    throw new Error("Dịch vụ AI hiện đang bị lỗi, vui lòng thử lại sau");
-  }
+  // if (Math.random() < 0.9) {
+  //   throw new Error("Dịch vụ AI hiện đang bị lỗi, vui lòng thử lại sau");
+  // }
 
-  //Giả lập network timeout(5%)
-  if (Math.random() < 0.05) {
-    throw new Error("Request Timeout, vui lòng thử lại sau");
-  }
+  // if (Math.random() < 0.9) {
+  //   throw new Error("Request Timeout, vui lòng thử lại sau");
+  // }
 
   const suggestions = [
     products.find((p) => p.id === "1"),
@@ -29,10 +27,9 @@ export const getAISuggestions = async (userId: string): Promise<Product[]> => {
 export const searchProducts = async (query: string): Promise<Product[]> => {
   await delay(500);
 
-  //Giả lập lỗi server (5%)
-  if (Math.random() < 0.05) {
-    throw new Error("Server Error, vui lòng thử lại sau");
-  }
+  // if (Math.random() < 0.9) {
+  //   throw new Error("Server Error, vui lòng thử lại sau");
+  // }
 
   //Giả lập lỗi query invalid
   if (query.trim().length < 2) {
@@ -82,12 +79,10 @@ export const getProductsPaginated = async (
 ): Promise<{ products: Product[]; hasMore: boolean; total: number }> => {
   await delay(500);
 
-  //Giả lập kết nối DB lỗi (15%)
-  if (Math.random() < 0.15) {
-    throw new Error("Lỗi kết nối DB, vui lòng thử lại sau");
-  }
+  // if (Math.random() < 0.15) {
+  //   throw new Error("Lỗi kết nối DB, vui lòng thử lại sau");
+  // }
 
-  //Giả lập page number invalid
   if (page < 1) {
     throw new Error("Trang không hợp lệ, vui lòng thử lại sau");
   }
@@ -134,20 +129,18 @@ export const getProductsPaginated = async (
 export const getChatbotResponse = async (message: string): Promise<string> => {
   await delay(1000);
 
-  //Giả lập dịch vụ lỗi (8%)
-  if (Math.random() < 0.08) {
-    throw new Error("Dịch vụ AI hiện đang bị lỗi, vui lòng thử lại sau");
-  }
+  // if (Math.random() < 0.08) {
+  //   throw new Error("Dịch vụ AI hiện đang bị lỗi, vui lòng thử lại sau");
+  // }
 
-  //Giả lập network timeout (5%)
-  if (Math.random() < 0.05) {
-    throw new Error("Request Timeout, vui lòng thử lại sau");
-  }
+  // if (Math.random() < 0.05) {
+  //   throw new Error("Request Timeout, vui lòng thử lại sau");
+  // }
 
-  //Giả lập lỗi message invalid
   if (!message.trim()) {
     throw new Error("Vui lòng nhập tin nhắn");
   }
+  
   const lowerMessage = message.toLowerCase();
 
   if (lowerMessage.includes("javascript") || lowerMessage.includes("js")) {
