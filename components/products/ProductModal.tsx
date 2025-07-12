@@ -20,41 +20,37 @@ export default function ProductModal({
   isFavorite 
 }: ProductModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
-
-  // Handle click outside to close modal
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+  const handleClickOutside = useCallback(
+    (event: MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
         onClose();
       }
-    };
-    // const handleClickOutside = useCallback((event: MouseEvent) => {
-    //   if(modalRef.current && !modalRef.current.contains(event.target as Node)){
-    //     onClose
-    //   }
-    // },[])
-
-    // Handle escape key to close modal
-    const handleEscapeKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+    },
+    [onClose]
+  );
+  //useCallback at top  level
+  const handleEscapeKey = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
         onClose();
       }
-    };
-
+    },
+    [onClose]
+  );
+  
+  useEffect(() => {
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      document.addEventListener('keydown', handleEscapeKey);
-      // Prevent body scroll when modal is open
-      document.body.style.overflow = 'hidden';
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleEscapeKey);
+      document.body.style.overflow = "hidden";
     }
-
+    
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleEscapeKey);
-      // Restore body scroll when modal is closed
-      document.body.style.overflow = 'unset';
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscapeKey);
+      document.body.style.overflow = "";
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, handleClickOutside, handleEscapeKey]);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('vi-VN', {
