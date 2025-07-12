@@ -285,7 +285,7 @@ export default function ProductSection() {
                 currentView === "history"
                   ? "bg-blue-600 text-white shadow-lg"
                   : "bg-white text-gray-700 hover:bg-gray-50 hover:shadow-md"
-              }`}
+              } cursor-pointer`}
             >
               <Eye size={16} className="inline mr-2" />
               Đã xem ({viewHistory.length})

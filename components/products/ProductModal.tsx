@@ -81,7 +81,7 @@ export default function ProductModal({
           <h2 className="text-2xl font-bold text-gray-900">Chi tiết khóa học</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+            className="p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
             aria-label="Đóng modal"
           >
             <X size={24} />
@@ -103,7 +103,7 @@ export default function ProductModal({
                 {/* Favorite Button */}
                 <button
                   onClick={() => onToggleFavorite(product.id)}
-                  className="absolute top-4 right-4 p-3 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-all duration-200"
+                  className="absolute top-4 right-4 p-3 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-all duration-200 cursor-pointer"
                   aria-label={isFavorite ? 'Xóa khỏi yêu thích' : 'Thêm vào yêu thích'}
                 >
                   <Heart 
@@ -191,7 +191,7 @@ export default function ProductModal({
                   )}
                 </div>
                 
-                <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors font-medium text-lg">
+                <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors font-medium text-lg cursor-pointer">
                   Đăng ký khóa học
                 </button>
               </div>
