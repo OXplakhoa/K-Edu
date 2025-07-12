@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useRef, useCallback } from 'react';
-import { Loader2 } from 'lucide-react';
+import ProductSkeleton from '../products/ProductSkeleton';
 
 interface InfiniteScrollProps {
   onLoadMore: () => void;
@@ -53,11 +53,12 @@ export default function InfiniteScroll({
       
       {/* Loading indicator */}
       {hasMore && (
-        <div ref={loadingRef} className="flex justify-center py-8">
+        <div ref={loadingRef} className="py-8">
           {isLoading ? (
-            <div className="flex items-center gap-2 text-gray-600">
-              <Loader2 className="animate-spin" size={20} />
-              <span>Đang tải thêm khóa học...</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {Array.from({ length: 4 }).map((_, index) => (
+                <ProductSkeleton key={index} />
+              ))}
             </div>
           ) : (
             <div className="h-8" /> // Invisible element for intersection observer
