@@ -1,8 +1,9 @@
 import { clsx, type ClassValue } from "clsx"
-import { toast, ToastType } from "react-hot-toast";
 import { twMerge } from "tailwind-merge"
-import { Product, products } from "./data";
-import { STORAGE_KEYS } from "@/components/common/constants";
+import { Product } from '@/components/common/types';
+import { ToastType } from '@/components/ui/Toast';
+import { STORAGE_KEYS } from '@/components/common/constants';
+import { products } from './data';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -49,21 +50,11 @@ export const productUtils = {
     return newHistory;
   },
 
-  // Toggle favorite with toast notification
+  // Toggle favorite
   toggleFavorite: (productId: string, currentFavorites: string[]): string[] => {
     const newFavorites = currentFavorites.includes(productId)
       ? currentFavorites.filter(id => id !== productId)
       : [...currentFavorites, productId];
-    
-    // Show toast notification
-    const product = products.find(p => p.id === productId);
-    if (product) {
-      if (newFavorites.includes(productId)) {
-        toast.success(`Đã thêm "${product.name}" vào yêu thích!`);
-      } else {
-        toast.success(`Đã xóa "${product.name}" khỏi yêu thích!`);
-      }
-    }
     
     return newFavorites;
   },
@@ -81,10 +72,9 @@ export const productUtils = {
 
 // Error Handling Utilities
 export const errorUtils = {
-  // Handle API errors with toast
+  // Handle API errors
   handleApiError: (error: unknown, defaultMessage: string): string => {
     const errorMessage = error instanceof Error ? error.message : defaultMessage;
-    toast.error(errorMessage);
     return errorMessage;
   },
 
@@ -112,6 +102,7 @@ export const stateUtils = {
     ...updates
   })
 };
+
 // Toast Management
 export const toastUtils = {
   generateId: () => `toast-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
