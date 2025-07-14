@@ -1,9 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Heart, Eye, Star, AlertTriangle, X } from "lucide-react";
 import { products } from "@/lib/data";
-import { Product, ViewType } from "@/components/common/types";
-import { ToastType } from "@/components/ui/Toast";
+import { Product } from "@/config/types/product";
+import { ViewType } from "@/config/types/ui";
+import { ToastType } from "@/config/types/ui";
 import ProductGrid from "@/components/products/ProductGrid";
 import ProductModal from "@/components/products/ProductModal";
 import SearchAndFilter from "@/components/search/SearchAndFilter";
@@ -12,6 +13,7 @@ import { ToastContainer } from "@/components/ui/Toast";
 import { productUtils, errorUtils, stateUtils, toastUtils } from "@/lib/utils";
 import { getProductsPaginated, getAISuggestions } from "@/lib/api";
 import ProductSkeleton from "../products/ProductSkeleton";
+import { PRODUCT_SECTION_SKELETON_ARRAY } from "@/config/constants/skeleton";
 
 interface ToastItem {
   id: string;
@@ -308,7 +310,7 @@ export default function ProductSection() {
         {/* Products Grid */}
         {isLoadingSuggestions ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {Array.from({ length: 8 }).map((_, idx) => (
+            {PRODUCT_SECTION_SKELETON_ARRAY.map((_, idx) => (
               <ProductSkeleton key={idx} />
             ))}
           </div>

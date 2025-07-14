@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { Search, Filter, Sparkles } from 'lucide-react';
+import { Search, Sparkles } from 'lucide-react';
 import { categories, priceRanges } from '@/lib/data';
 
 interface SearchAndFilterProps {

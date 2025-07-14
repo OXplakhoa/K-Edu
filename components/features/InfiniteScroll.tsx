@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useRef, useCallback } from 'react';
 import ProductSkeleton from '../products/ProductSkeleton';
+import { INFINITE_SCROLL_SKELETON_ARRAY } from '@/config/constants/skeleton';
 
 interface InfiniteScrollProps {
   onLoadMore: () => void;
@@ -56,7 +57,7 @@ export default function InfiniteScroll({
       <div ref={loadingRef} className="py-8">
         {isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {Array.from({ length: 4 }).map((_, index) => (
+            {INFINITE_SCROLL_SKELETON_ARRAY.map((_, index) => (
               <ProductSkeleton key={index} />
             ))}
           </div>

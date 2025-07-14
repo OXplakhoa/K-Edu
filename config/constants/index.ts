@@ -5,3 +5,4 @@ export * from './courses';
 export * from './messages';
 export * from './storage';
 export * from './ui';
+export * from './skeleton';
