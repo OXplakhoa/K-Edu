@@ -1,15 +1,7 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
 import { Product } from '@/components/common/types';
-import { ToastType } from '@/components/ui/Toast';
 import { STORAGE_KEYS } from '@/components/common/constants';
-import { products } from './data';
+import { products } from '../data';
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
-
-// Product Management Utilities
 export const productUtils = {
   // Load favorites from localStorage
   loadFavorites: (): string[] => {
@@ -68,49 +60,4 @@ export const productUtils = {
   clearFavorites: (): string[] => {
     return [];
   }
-};
-
-// Error Handling Utilities
-export const errorUtils = {
-  // Handle API errors
-  handleApiError: (error: unknown, defaultMessage: string): string => {
-    const errorMessage = error instanceof Error ? error.message : defaultMessage;
-    return errorMessage;
-  },
-
-  // Create toast message object
-  createToastMessage: (message: string, type: ToastType): { message: string; type: ToastType } => {
-    return { message, type };
-  }
-};
-
-// State Management Utilities
-export const stateUtils = {
-  // Create initial filters state
-  createInitialFilters: () => ({
-    category: 'All',
-    priceRange: { min: 0, max: Infinity },
-    search: ''
-  }),
-
-  // Update filters state
-  updateFilters: (
-    currentFilters: any, 
-    updates: Partial<{ category: string; priceRange: { min: number; max: number }; search: string }>
-  ) => ({
-    ...currentFilters,
-    ...updates
-  })
-};
-
-// Toast Management
-export const toastUtils = {
-  generateId: () => `toast-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-  
-  createToast: (message: string, type: ToastType, duration?: number) => ({
-    id: toastUtils.generateId(),
-    message,
-    type,
-    duration: duration || 5000
-  })
 };
