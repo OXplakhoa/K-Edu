@@ -51,27 +51,24 @@ export default function InfiniteScroll({
     <div>
       {children}
       
-      {/* Loading indicator */}
-      {hasMore && (
-        <div ref={loadingRef} className="py-8">
-          {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {Array.from({ length: 4 }).map((_, index) => (
-                <ProductSkeleton key={index} />
-              ))}
-            </div>
-          ) : (
-            <div className="h-8" /> // Invisible element for intersection observer
-          )}
-        </div>
-      )}
-      
-      {/* End of results */}
-      {!hasMore && (
-        <div className="text-center py-8 text-gray-500">
-          <p>Đã hiển thị tất cả khóa học</p>
-        </div>
-      )}
+      {/* Loading Skeleton and Ending Message */}
+    {hasMore ? (
+      <div ref={loadingRef} className="py-8">
+        {isLoading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {Array.from({ length: 4 }).map((_, index) => (
+              <ProductSkeleton key={index} />
+            ))}
+          </div>
+        ) : (
+          <div className="h-8" /> // Invisible element for intersection observer
+        )}
+      </div>
+    ) : (
+      <div className="text-center py-8 text-gray-500">
+        <p>Đã hiển thị tất cả khóa học</p>
+      </div>
+    )}
     </div>
   );
 } 
