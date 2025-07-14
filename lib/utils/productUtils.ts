@@ -1,5 +1,5 @@
-import { Product } from '@/components/common/types';
-import { STORAGE_KEYS } from '@/components/common/constants';
+import { Product } from '@/config/types/product';
+import { STORAGE_KEYS } from '@/config/constants/storage';
 import { products } from '../data';
 
 export const productUtils = {
