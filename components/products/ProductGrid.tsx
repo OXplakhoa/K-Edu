@@ -3,6 +3,7 @@
 import { Product } from "@/lib/data";
 import ProductSkeleton from "./ProductSkeleton";
 import ProductCard from "./ProductCard";
+import { PRODUCT_SECTION_SKELETON_ARRAY } from "@/config/constants/skeleton";
 
 interface ProductGridProps {
   products: Product[];
@@ -10,7 +11,6 @@ interface ProductGridProps {
   onViewDetails: (product: Product) => void;
   onToggleFavorite: (productId: string) => void;
   isLoading?: boolean;
-  skeletonCount?: number;
 }
 
 export default function ProductGrid({
@@ -19,12 +19,11 @@ export default function ProductGrid({
   onViewDetails,
   onToggleFavorite,
   isLoading = false,
-  skeletonCount = 8,
 }: ProductGridProps) {
   if (isLoading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {Array.from({ length: skeletonCount }).map((_, index) => (
+        {PRODUCT_SECTION_SKELETON_ARRAY.map((_, index) => (
           <ProductSkeleton key={index} />
         ))}
       </div>
