@@ -6,7 +6,7 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 //Mock API suggestions
 export const getAISuggestions = async (userId: string): Promise<Product[]> => {
   await delay(1500);
-
+  console.log(userId);
   // if (Math.random() < 0.9) {
   //   throw new Error("Dịch vụ AI hiện đang bị lỗi, vui lòng thử lại sau");
   // }
