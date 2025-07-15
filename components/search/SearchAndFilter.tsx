@@ -1,7 +1,8 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Sparkles } from 'lucide-react';
 import { categories, priceRanges } from '@/lib/data';
+import { useDebounce } from '@/lib/utils';
 
 interface SearchAndFilterProps {
   onSearch: (query: string) => void;
@@ -20,6 +21,13 @@ export default function SearchAndFilter({
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedPriceRange, setSelectedPriceRange] = useState(priceRanges[0]);
 
+  // Debounce searchQuery
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
+
+  useEffect(() => {
+    onSearch(debouncedSearchQuery);
+  }, [debouncedSearchQuery]);
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     onSearch(searchQuery);
@@ -28,7 +36,7 @@ export default function SearchAndFilter({
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearchQuery(value);
-    onSearch(value); // Real-time search
+    // onSearch(value); // Debounce searchQuery
   };
 
   const handleCategoryChange = (category: string) => {
