@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, Send, X, Bot, User } from 'lucide-react';
 import { getChatbotResponse } from '@/lib/api';
+import { useModal } from '@/lib/utils/useModal';
 
 interface Message {
   id: string;
@@ -12,6 +13,7 @@ interface Message {
 
 export default function ChatbotAI() {
   const [isOpen, setIsOpen] = useState(false);
+  const {modalRef} = useModal({isOpen, onClose: () => setIsOpen(false)});
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -84,7 +86,7 @@ export default function ChatbotAI() {
       {/* Chat Modal */}
       {isOpen && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-end justify-end p-4">
-          <div className="bg-white rounded-lg shadow-xl w-full max-w-md h-[500px] flex flex-col">
+          <div ref={modalRef} className="bg-white rounded-lg shadow-xl w-full max-w-md h-[500px] flex flex-col">
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-t-lg">
               <div className="flex items-center gap-2">
