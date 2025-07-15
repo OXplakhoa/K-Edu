@@ -1,5 +1,4 @@
 "use client";
-import React, { useCallback, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { X, Star, Clock, Users, Heart, Tag } from "lucide-react";
 import { Product } from "@/lib/data";
